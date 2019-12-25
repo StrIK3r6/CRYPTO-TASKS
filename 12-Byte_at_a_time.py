@@ -29,7 +29,7 @@ def exploit(secret):
     		if b_block==f_block:
     			flag+=char 
 
-    print(flag) 
+    print(flag,sep='\n') 
     
 
 def padding(mesg):
