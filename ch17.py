@@ -4,7 +4,7 @@ def aes_ECB_Decrypt(ctext):
 
     ctext = ctext.decode('base64')
     
-    key="YELLOW SUBMARIE"
+    key="YELLOW SUBMARINE"
 
     ptext = AES.new(KEY, AES.MODE_ECB)
 
