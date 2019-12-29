@@ -10,17 +10,17 @@ def encryption_oracle(mode,pt):
 
 	def aes_ECB_Encrypt(pt,key):
    
-    	ctext_ecb=AES.new(key,AES.MODE_ECB)
-    	ct=ctext_ecb.encrypt(padding(pt))
-    	return ct
+    		ctext_ecb=AES.new(key,AES.MODE_ECB)
+    		ct=ctext_ecb.encrypt(padding(pt))
+    		return ct
 
 	def padding(pt):
     
-    	pad = 16-len(pt)%16
-    	padding=chr(pt)*pad    
-    	print(padding)
-    	mesg=pt+str(padding)
-    	return mesg
+    		pad = 16-len(pt)%16
+    		padding=chr(pt)*pad    
+    		print(padding)
+    		mesg=pt+str(padding)
+    		return mesg
 	
 	def aes_CBC_Encrypt(pt,key):
 
