@@ -1,4 +1,4 @@
-import base64
+import base64oracle
 
 def ecb_Detect(ctext):
 
