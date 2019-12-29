@@ -5,7 +5,7 @@ import random
 def encryption_oracle(mode,pt):
 
 	key=os.urandom(128)
-	rand_bytes=random.randint(5,10)*A
+	rand_bytes=random.randint(5,10)*'A'
 	pt=rand_bytes+pt+rand_bytes
 
 	def aes_ECB_Encrypt(pt,key):
