@@ -5,17 +5,17 @@ def aes_CBC_Encrypt(pt):
 		pt="comment1=cooking%20MCs;userdata="+pt
 		pt+=";comment2=%20like%20a%20pound%20of%20bacon"
 		pt=pt.replace(';','?').replace('=','?')
-	    pt=padding(pt)	   
-        ctext=AES.new("ALL HAIL CRYPTOO",AES.MODE_CBC,"YELLOW SUBMARINE")
-	    ct=ctext.encrypt(pt)
-	    return ct
+	    	pt=padding(pt)	   
+        	ctext=AES.new("ALL HAIL CRYPTOO",AES.MODE_CBC,"YELLOW SUBMARINE")
+	    	ct=ctext.encrypt(pt)
+	    	return ct
 
 def padding(pt):
 		
 		padlen=16-(len(pt)%16)
-	    padbytes=padlen*chr(padlen)
-	    pt+=padbytes
-	    return pt
+	    	padbytes=padlen*chr(padlen)
+	    	pt+=padbytes
+	    	return pt
 
 def aes_CBC_Decrypt(ct):
 
@@ -25,6 +25,8 @@ def aes_CBC_Decrypt(ct):
 			print "You are admin now"
 		else:
 			print "You must be logged in as admin to get access"
+
+#bit flipping attack execution function!
 
 def exploit(ct):
 
