@@ -17,21 +17,20 @@ def aes_ECB_Encrypt(inp):
     ct=ctext.encrypt(pt)
     return ct
 
-def Repeat_check(Rand_bytes):
-
+def Repeat_check(Rand_bytes):               #returns a ciphertext block with the unkown string in it  
+                                                
     inp=Rand_bytes
     repeating_block="aaaaaaaaaaaaaaaa"
     for i in range(32,48):
         inp+='a'*i
         ct=aes_ECB_Encrypt(inp)
         ct_blocks=[ct[j*16:(j+1)*16] for j in range(0,len(ct)//16)]
-        if (repeating_block in ct_blocks):
+        if (repeating_block in ct_blocks):  #checks for two same same blocks [containing the attacker controlled input]
             new_ct=ct_blocks[ct_blocks.index(rep_block)+2:]
-            print(new_ct)
             return new_ct
             break
     
-def exploit(Rand_bytes):
+def exploit(Rand_bytes):                    #attack begins here
     
     ct=Repeat_check(Rand_bytes)
     flag=""
