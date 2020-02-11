@@ -4,26 +4,26 @@ from Crypto.Util.number import bytes_to_long
 from base64 import b64decode
 
 
-def ctr_implement(ct,key):
+def ctr_implement(ct,key):				#Implements CTR mode
 	
 	plaintext=''
-	cipher_blocks=[ct[i*16:(i+1)*16] for i in range(0,4)]
+	cipher_blocks=[ct[i*16:(i+1)*16] for i in range(0,4)]	#divides ciphertext into keystream sized blocks
 	for index in range(len(cipher_blocks)):
 		
-		iv=chr(0)*8+chr(index)+chr(0)*7
+		iv=chr(0)*8+chr(index)+chr(0)*7			#Initialising the iv
 		Encrypted_iv=iv_encrypt(key,iv)
 		Encrypted_iv=Encrypted_iv[:len(cipher_blocks[index])]
 		
 		pt=''
 		for iv_byte,ct_byte in zip(Encrypted_iv,cipher_blocks[index]):
 
-			pt+=chr(ord(iv_byte)^ord(ct_byte))
+			pt+=chr(ord(iv_byte)^ord(ct_byte))	#xoring kestream bytes with ciphertext
 		
 		plaintext+=pt
 
 	return plaintext
 
-def iv_encrypt(key,iv):
+def iv_encrypt(key,iv):					#Generating the keystream
 
 	cipher=AES.new(key,AES.MODE_ECB)
 	ct=cipher.encrypt(iv)
@@ -39,6 +39,6 @@ if __name__ == '__main__':
 	key="YELLOW SUBMARINE"
 	
 	plaintext=ctr_implement(ciphertext,key)
-	print plaintext
+	print plaintext					#prints the plaintext
 	ctext=ctr_implement(plaintext,key)
-	print ctext
+	print ctext					#prints the ciphertext again after encryption
