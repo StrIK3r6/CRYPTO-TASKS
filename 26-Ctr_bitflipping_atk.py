@@ -1,4 +1,4 @@
-from CTRMODE import *  //refer challenge "18-CTRMODE.py" [implemetation of \CTR mode]
+from CTRMODE import *  //refer challenge "18-CTRMODE.py" (implemetation of CTR mode)
 
 def encode_cookie(pt):
 	
