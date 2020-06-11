@@ -4,7 +4,6 @@ def encode_cookie(pt):
 	
 	pt = "comment1=cooking%20MCs;userdata=" + pt + ";comment2=%20like%20a%20pound%20of%20bacon"
 	pt = pt.replace('=','?')
-	
 	return ctr_implement(pt)
  
 def admin_check(encrypted_cookie):
