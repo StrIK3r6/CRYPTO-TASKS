@@ -30,9 +30,7 @@ def exploit(key,iv):
 	print("[.]Cipherteext: {}".format(ctext))
 
 	exploit_text = ctext[:16] + "\x00"*16 + ctext[:16]
-
 	obtained_text = cbc_decrypt(key,iv,exploit_text)
-
 	plaintext_1,plaintext_2 = obtained_text[:16], obtained_text[32:]
 
 	obtained_key=''
