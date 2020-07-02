@@ -1,4 +1,4 @@
-from CTRMODE import *
+from CTRMODE import *                                   //implements ctr encryption
 from Crypto.Cipher import AES
 from base64 import b64decode
 from os import urandom
@@ -12,7 +12,7 @@ def edit(ciphertext,offset,newtext,key):
 if __name__ == '__main__':
     
     aes = AES.new("YELLOW SUBMARINE",AES.MODE_ECB)
-    ct = open('chall25.txt').read().strip()
+    ct = open('chall25.txt').read().strip()                 //the given enrypted file
     ct = b64decode(ct) 
     plaintext = aes.decrypt(ct) 
 
