@@ -1,4 +1,4 @@
-from CTRMODE import *                                   //implements ctr encryption
+from CTRMODE import *                                  //implements ctr encryption
 from Crypto.Cipher import AES
 from base64 import b64decode
 from os import urandom
